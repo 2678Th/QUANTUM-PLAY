@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum Playground | Double-Slit Experiment</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel">
+      <div>
+        <p class="eyebrow">Quantum Playground</p>
+        <h1>The Double-Slit Experiment</h1>
+        <p class="lede">
+          A browser-based visual simulation of one of quantum physics’ strangest ideas:
+          particles can form wave-like interference patterns, until measurement changes what we see.
+        </p>
+      </div>
+      <div class="status-card" aria-live="polite">
+        <span class="status-label">Current Mode</span>
+        <strong id="modeLabel">Wave Interference</strong>
+        <small id="modeDescription">Observer is off. Detections build an interference pattern.</small>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <aside class="control-panel" aria-label="Simulation controls">
+        <h2>Controls</h2>
+
+        <label class="switch-row">
+          <span>
+            <strong>Observer</strong>
+            <small>Turn measurement on or off</small>
+          </span>
+          <input id="observerToggle" type="checkbox" />
+        </label>
+
+        <label>
+          Particles per burst
+          <input id="burstSize" type="range" min="1" max="16" value="5" />
+          <span id="burstSizeValue">5</span>
+        </label>
+
+        <label>
+          Particle speed
+          <input id="particleSpeed" type="range" min="1" max="10" value="5" />
+          <span id="particleSpeedValue">5</span>
+        </label>
+
+        <label>
+          Slit separation
+          <input id="slitSeparation" type="range" min="52" max="180" value="110" />
+          <span id="slitSeparationValue">110</span>
+        </label>
+
+        <label>
+          Wave strength
+          <input id="waveStrength" type="range" min="1" max="10" value="7" />
+          <span id="waveStrengthValue">7</span>
+        </label>
+
+        <div class="button-grid">
+          <button id="pauseButton" type="button">Pause</button>
+          <button id="resetButton" type="button">Reset</button>
+        </div>
+
+        <div class="stat-box">
+          <span>Particles detected</span>
+          <strong id="detectedCount">0</strong>
+        </div>
+      </aside>
+
+      <section class="canvas-card">
+        <canvas id="experimentCanvas" width="1100" height="620" aria-label="Double-slit experiment animation"></canvas>
+        <div class="legend">
+          <span><i class="dot source"></i> Source</span>
+          <span><i class="dot barrier"></i> Barrier with two slits</span>
+          <span><i class="dot screen"></i> Detection screen</span>
+        </div>
+      </section>
+    </section>
+
+    <section class="explain-panel">
+      <h2>What this shows</h2>
+      <p>
+        When the observer is <strong>off</strong>, the simulation places detections according to a wave-like
+        interference pattern. When the observer is <strong>on</strong>, detections cluster behind the slits,
+        representing particle-like behaviour after measurement.
+      </p>
+      <p class="note">
+        This is an educational visual model, not a laboratory-accurate quantum physics engine.
+        Its purpose is to make the core idea understandable and interactive.
+      </p>
+    </section>
+  </main>
+
+  <script src="src/main.js"></script>
+</body>
+</html>
